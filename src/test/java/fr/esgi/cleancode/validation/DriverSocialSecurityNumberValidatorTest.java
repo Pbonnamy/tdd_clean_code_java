@@ -38,6 +38,6 @@ public class DriverSocialSecurityNumberValidatorTest {
     public void should_be_valid() {
         final var validator = new DriverSocialSecurityNumberValidator();
 
-        assertDoesNotThrow(() -> validator.validate("123456789101112"));
+        assertDoesNotThrow(() -> validator.validate("123456789012345"));
     }
 }
