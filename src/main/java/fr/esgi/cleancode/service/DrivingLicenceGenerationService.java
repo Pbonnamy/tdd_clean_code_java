@@ -13,7 +13,9 @@ public class DrivingLicenceGenerationService {
     private final InMemoryDatabase database;
     private final DriverSocialSecurityNumberValidator validator;
 
-    public void create(UUID drivingLicenceId, String driverSocialSecurityNumber) {
+    public DrivingLicence create(String driverSocialSecurityNumber) {
+
+        var drivingLicenceId = new DrivingLicenceIdGenerationService().generateNewDrivingLicenceId();
 
         validator.validate(driverSocialSecurityNumber);
 
@@ -23,5 +25,7 @@ public class DrivingLicenceGenerationService {
                 .build();
 
         database.save(drivingLicenceId, drivingLicence);
+
+        return drivingLicence;
     }
 }

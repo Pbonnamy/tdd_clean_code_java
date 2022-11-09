@@ -16,14 +16,11 @@ class DrivingLicenceGenerationServiceTest {
     @InjectMocks
     private DrivingLicenceGenerationService service = new DrivingLicenceGenerationService(database, new DriverSocialSecurityNumberValidator());
 
-    private final DrivingLicenceIdGenerationService idGenerationService = new DrivingLicenceIdGenerationService();
     @Test
     void should_create() {
-        final var id = this.idGenerationService.generateNewDrivingLicenceId();
-
         var driver_social_security_number = "123456789012345";
-        service.create(id, driver_social_security_number);
+        var actual = service.create(driver_social_security_number);
 
-        assertTrue(database.findById(id).isPresent());
+        assertTrue(database.findById(actual.getId()).isPresent());
     }
 }
