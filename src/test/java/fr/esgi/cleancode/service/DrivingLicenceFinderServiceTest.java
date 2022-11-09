@@ -7,6 +7,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @ExtendWith(MockitoExtension.class)
 class DrivingLicenceFinderServiceTest {
 
@@ -23,6 +25,9 @@ class DrivingLicenceFinderServiceTest {
 
     @Test
     void should_not_find() {
+        var id = new DrivingLicenceIdGenerationService().generateNewDrivingLicenceId();
+        var actual = service.findById(id);
 
+        assertTrue(actual.isEmpty());
     }
 }
