@@ -8,7 +8,7 @@ import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class DrivingLicenceGenerationServiceTest {
+class DrivingLicenceGenerationServiceTest {
 
     @Mock
     private InMemoryDatabase database = InMemoryDatabase.getInstance();
@@ -18,7 +18,7 @@ public class DrivingLicenceGenerationServiceTest {
 
     private final DrivingLicenceIdGenerationService idGenerationService = new DrivingLicenceIdGenerationService();
     @Test
-    public void should_create() {
+    void should_create() {
         final var id = this.idGenerationService.generateNewDrivingLicenceId();
 
         var driver_social_security_number = "123456789012345";

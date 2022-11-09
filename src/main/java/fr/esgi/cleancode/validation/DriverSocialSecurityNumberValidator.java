@@ -8,7 +8,7 @@ public class DriverSocialSecurityNumberValidator {
             throw new InvalidDriverSocialSecurityNumberException("Driver social security number should not be null");
         }
 
-        if (!driverSocialSecurityNumber.matches("[0-9]+")) {
+        if (!driverSocialSecurityNumber.matches("\\d+")) {
             throw new InvalidDriverSocialSecurityNumberException("Driver social security number should only contains numbers");
         }
 

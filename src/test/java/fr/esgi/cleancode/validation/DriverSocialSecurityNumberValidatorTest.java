@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DriverSocialSecurityNumberValidatorTest {
+class DriverSocialSecurityNumberValidatorTest {
 
     @Test
-    public void should_not_be_null() {
+    void should_not_be_null() {
         final var validator = new DriverSocialSecurityNumberValidator();
 
         var e = assertThrows(InvalidDriverSocialSecurityNumberException.class, () -> validator.validate(null));
@@ -16,7 +16,7 @@ public class DriverSocialSecurityNumberValidatorTest {
     }
 
     @Test
-    public void should_contain_only_numbers() {
+    void should_contain_only_numbers() {
         final var validator = new DriverSocialSecurityNumberValidator();
 
         var e = assertThrows(InvalidDriverSocialSecurityNumberException.class, () -> validator.validate("123abc"));
@@ -24,7 +24,7 @@ public class DriverSocialSecurityNumberValidatorTest {
     }
 
     @Test
-    public void should_equal_15_characters() {
+    void should_equal_15_characters() {
         final var validator = new DriverSocialSecurityNumberValidator();
 
         var e_under_15 = assertThrows(InvalidDriverSocialSecurityNumberException.class, () -> validator.validate("123"));
@@ -35,7 +35,7 @@ public class DriverSocialSecurityNumberValidatorTest {
     }
 
     @Test
-    public void should_be_valid() {
+    void should_be_valid() {
         final var validator = new DriverSocialSecurityNumberValidator();
 
         assertDoesNotThrow(() -> validator.validate("123456789012345"));
