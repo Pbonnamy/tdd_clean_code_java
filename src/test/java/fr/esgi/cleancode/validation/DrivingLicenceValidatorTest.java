@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DriverSocialSecurityNumberValidatorTest {
+class DrivingLicenceValidatorTest {
 
     @Test
     void should_not_be_null() {
