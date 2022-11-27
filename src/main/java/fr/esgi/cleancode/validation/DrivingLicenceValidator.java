@@ -1,18 +1,21 @@
 package fr.esgi.cleancode.validation;
 
 import fr.esgi.cleancode.exception.InvalidDriverSocialSecurityNumberException;
+import fr.esgi.cleancode.model.DrivingLicence;
 
-public class DriverSocialSecurityNumberValidator {
-    public void validate(String driverSocialSecurityNumber) {
-        if (driverSocialSecurityNumber == null) {
+public class DrivingLicenceValidator {
+    public void validate(DrivingLicence drivingLicence) {
+        final var socialSecurityNumber = drivingLicence.getDriverSocialSecurityNumber();
+
+        if (socialSecurityNumber == null) {
             throw new InvalidDriverSocialSecurityNumberException("Driver social security number should not be null");
         }
 
-        if (!driverSocialSecurityNumber.matches("\\d+")) {
+        if (!socialSecurityNumber.matches("\\d+")) {
             throw new InvalidDriverSocialSecurityNumberException("Driver social security number should only contains numbers");
         }
 
-        if (driverSocialSecurityNumber.length() != 15) {
+        if (socialSecurityNumber.length() != 15) {
             throw new InvalidDriverSocialSecurityNumberException("Driver social security number should be 15 characters long");
         }
     }
